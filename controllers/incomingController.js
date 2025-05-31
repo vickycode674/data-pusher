@@ -7,7 +7,6 @@ const handleIncomingData = async (req, res) => {
     const token = req.headers['cl-x-token'];
     const data = req.body;
 
-// 🔐 Step 1: Validate token presence
 
 if (!token) {
     return res.status(401).json({ error: 'Un Authentic' });
@@ -40,7 +39,7 @@ try {
             let response;
 
             if (dest.http_method === 'GET') {
-                response = await axios.get(dest.url, { params: data });
+                response = await axios.get(dest.url, { params: data }); //sending data as query params for the get request
             }
 
             else if (dest.http_method === 'POST') {

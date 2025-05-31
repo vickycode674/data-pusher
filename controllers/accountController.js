@@ -62,8 +62,6 @@ exports.updateAccount = async (req, res) => {
   try {
     const { id } = req.params;
     const updates = req.body;
-    console.log("here are the updates dude===============",updates)
-
     const updatedRows = await Account.update(id, updates);
     if (!updatedRows) {
       return res.status(404).json({ error: 'Account not found' });
