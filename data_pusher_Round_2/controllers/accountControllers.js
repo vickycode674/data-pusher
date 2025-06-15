@@ -2,14 +2,13 @@ const Account = require("../models/account.model");
 const crypto = require("crypto");
 const knex = require('../config/db')
 
-// ✅ Create account
 exports.createAccount = async (req, res) => {
   try {
-    console.log("here is the website account============",req.body)
     const { account_name, website } = req.body;
     const created_by = req.user?.id || 1; // fallback user ID for test/dev
   
     const app_secret_token = crypto.randomBytes(16).toString("hex");
+
 
     const data = {
       account_name,
@@ -23,24 +22,17 @@ exports.createAccount = async (req, res) => {
 
     res.status(201).json({ success: true, message: "Account created successfully",token:app_secret_token});
   } catch (error) {
+    console.log("here is the error coming===============")
     console.error("Error creating account:", error);
     res.status(500).json({ success: false, message: "Something went wrong" });
   }
 };
 
 // ✅ Get all accounts
-exports.getAllAccounts = async (req, res) => {
-  try {
-    const accounts = await knex('accounts').select('*');
-    res.status(200).json({ success: true, data: accounts });
-  } catch (error) {
-    console.error("Error fetching accounts:", error);
-    res.status(500).json({ success: false, message: "Unable to fetch accounts" });
-  }
-};
 
 exports.getAllAccounts = async (req, res) => {
   try {
+    console.log("hello world brooo");
     const { name, created_by } = req.query;
 
     let query = knex('accounts').select('*');

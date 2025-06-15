@@ -1,6 +1,5 @@
 const Destination = require('../models/destination.model'); // make sure this model exists and is correct
 const knex = require('../config/db');
-// ✅ Create Destination
 exports.createDestination = async (req, res) => {
   try {
     const { account_id, url, method, headers } = req.body;
@@ -11,7 +10,7 @@ exports.createDestination = async (req, res) => {
       url,
       method,
       headers: JSON.stringify(headers),
-      
+
       created_by: userId,
       updated_by: userId,
     });

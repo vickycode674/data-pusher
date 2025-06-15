@@ -6,8 +6,8 @@ const mockAuth = require('../middleware/mockAuth');
 const isTest = process.env.NODE_ENV === 'test';
 const useAuth = isTest ? mockAuth : verifyToken;
 
-router.post('/', mockAuth, destinationController.createDestination);
-router.get('/', mockAuth, destinationController.getAllDestinations);
+router.post('/', verifyToken, destinationController.createDestination);
+router.get('/', verifyToken, destinationController.getAllDestinations);
 router.get('/:id', verifyToken, destinationController.getDestinationById);
 router.put('/:id', verifyToken, destinationController.updateDestination);
 router.delete('/:id', verifyToken, destinationController.deleteDestination);

@@ -9,8 +9,6 @@ exports.receiveData = async (req, res) => {
     const token = req.headers['cl-x-token'];
     const eventId = req.headers['cl-x-event-id'];
 
-    console.log("Header Token:", token);
-    console.log("Event ID:", eventId);
 
     if (!token || !eventId) {
       return res.status(400).json({ success: false, message: "Missing required headers" });
@@ -36,7 +34,6 @@ exports.receiveData = async (req, res) => {
 
     const newEventId = `event_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
 
-    // ✅ Enqueue job instead of inserting logs directly
     await dataQueue.add({
       event_id: newEventId,
       account_id: account.account_id,
