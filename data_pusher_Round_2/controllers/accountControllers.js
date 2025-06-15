@@ -32,7 +32,6 @@ exports.createAccount = async (req, res) => {
 
 exports.getAllAccounts = async (req, res) => {
   try {
-    console.log("hello world brooo");
     const { name, created_by } = req.query;
 
     let query = knex('accounts').select('*');
