@@ -1,0 +1,59 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.*  # handles .env.development, .env.local, etc.
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# Build output
+dist/
+build/
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.sw?
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Optional lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Debugger configurations
+*.local
+
+# Test output
+test-output/
+
+# Optional cache folders
+.cache/
+.next/
+out/
+
+# Git
+.git/
