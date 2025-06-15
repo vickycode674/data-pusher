@@ -5,7 +5,23 @@
 
 ---
 
+
+
 ## 📘 API DOCUMENTATION
+
+## Data Pusher Assignment - Backend System  [Round 2]
+ 
+### 🚀 Tech Stack:
+- Node.js, Express
+- PostgreSQL + Knex.js
+- Redis + Bull Queue
+- Postman for API Testing
+
+### ⚙️ Setup Instructions:
+```bash
+npm install
+npx knex migrate:latest
+npm run dev
 
 ---
 
