@@ -34,6 +34,13 @@ app.use('/api/account-members', require('./routes/accountMemberRoutes'));
 app.use('/api/logs', require('./routes/logRoutes'));
 app.use('/server', require('./routes/dataHandlerRoutes'));
 
+// add this so tests can run it
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
 const cors = require("cors");
 
 

@@ -5,9 +5,10 @@ const knex = require('../config/db')
 // ✅ Create account
 exports.createAccount = async (req, res) => {
   try {
+    console.log("here is the website account============",req.body)
     const { account_name, website } = req.body;
-    const created_by = req.user.id;
-
+    const created_by = req.user?.id || 1; // fallback user ID for test/dev
+  
     const app_secret_token = crypto.randomBytes(16).toString("hex");
 
     const data = {

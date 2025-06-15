@@ -11,6 +11,7 @@ exports.createDestination = async (req, res) => {
       url,
       method,
       headers: JSON.stringify(headers),
+      
       created_by: userId,
       updated_by: userId,
     });
